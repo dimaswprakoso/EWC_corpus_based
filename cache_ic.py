@@ -22,7 +22,7 @@ db_database = 'sharebox'
 language = 'EN'
 
 # testing---------#
-base_word = 'stem' # raw, stem, lemma
+base_word = 'lemma' # raw, stem, lemma
 # ----------------#
 
 db_table = "ic_%s" % (base_word)
@@ -39,7 +39,7 @@ cursor = cnx.cursor(dictionary=True)
 # 1. Get items from workshop
 # ----------------------------------------------------------------------------#
 sql = """
-SELECT * FROM `workshop_items2` WHERE language = '""" + language + """' AND type='Material' 
+SELECT * FROM `workshop_items2` WHERE language = '""" + language + """' AND type='Material' AND wastecode!=Null AND wastecode!='99 99 99' 
 """
 
 item_list = {}
