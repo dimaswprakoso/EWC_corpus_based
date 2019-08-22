@@ -54,7 +54,7 @@ cursor = cnx.cursor(dictionary=True)
 # 1. Get items from workshop
 # ----------------------------------------------------------------------------#
 sql = """
-SELECT * FROM `workshop_items2` WHERE language = '""" + language + """' AND type='Material' AND wastecode!=Null AND wastecode!='99 99 99' 
+SELECT * FROM `workshop_items2` WHERE language = '""" + language + """' AND type='Material' AND wastecode!='Null' AND wastecode!='99 99 99' 
 """
 
 item_list = {}
