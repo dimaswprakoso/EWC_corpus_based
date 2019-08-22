@@ -37,11 +37,11 @@ string_sim = 'croft'  # if the word doesn't exist in word2vec model,apply Ratcli
 word_sim_algo = 'w2v'  # word similarity algorithm
 base_word = 'lemma'  # pre-processing, options: raw, stem, lemma
 pos = 'noun'  # word type, options: noun, all
-# ----------------------------------------------------------------------------#
-
 
 db_table_ic = "ic_%s" % (base_word)
 min_sim = 0.000001  # recommendation threshold
+# ----------------------------------------------------------------------------#
+
 
 # ----------------------------------------------------------------------------#
 # 0. Initialize
