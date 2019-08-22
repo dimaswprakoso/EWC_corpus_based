@@ -28,13 +28,13 @@ language = 'EN'
 
 # testing---------#
 method = 'corpus'
-sent_sim = 'li'  # sentence similarity algorithm, options: croft, li
-ic = 'yes'  # information content, croft's method doesn't consider ic, options: yes,no
-word_sim_th_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0] # word similarity threshold
-top_n_list = [5, 10, 15, 20] # N-value in Top-N recommendation
+sent_sim = 'li'  # sentence similarity algorithm
+ic = 'yes'  # information content
+word_sim_th_list = [0.4] # word similarity threshold
+top_n_list = [10] # N-value in Top-N recommendation
 
-string_sim = 'croft'  # options: croft, li, (croft:if the word is not in WordNet then apply Ratcliff/Obershelp pattern recognition,while li: set it to 0)
-word_sim_algo = 'w2v'  # word similarity algorithm, options: w2v
+string_sim = 'croft'  # if the word doesn't exist in word2vec model,apply Ratcliff/Obershelp pattern recognition
+word_sim_algo = 'w2v'  # word similarity algorithm
 base_word = 'lemma'  # pre-processing, options: raw, stem, lemma
 pos = 'noun'  # word type, options: noun, all
 # ----------------#
@@ -193,7 +193,7 @@ def most_similar_word(word, word_set):
         try:
             sim = model.similarity(word, ref_word)
         except:
-            sim = SequenceMatcher(None, word, ref_word).ratio()
+            sim = SequenceMatcher(None, word, ref_word).ratio() #if the word is not in word2vec model ,apply Ratcliff/Obershelp pattern recognition
         if sim > max_sim:
             max_sim = sim
             sim_word = ref_word
