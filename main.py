@@ -25,7 +25,7 @@ db_database = 'sharebox'
 language = 'EN'
 
 # testing---------------------------------------------------------------------#
-method = 'corpus'
+method = 'corpus' # corpus-based
 sent_sim = 'li'  # sentence similarity algorithm
 ic = 'yes'  # information content
 word_sim_th_list = [0.4] # word similarity threshold
@@ -431,7 +431,7 @@ for top_n in top_n_list:
             # Evaluate if the recommendation was correct (with stats)
             ev[m] = eval_topn(rec, item_list[m][1])
 
-        # Calculate the performance metrics (e.g. accuracy, precision, recall, F1) over all items
+        # Calculate the performance metrics (e.g. recall, ARHR, precision) over all items
         print(ev)
         # logging_result.log_result_ev(ev)
         results = eval_recommendations(ev)
