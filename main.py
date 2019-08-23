@@ -4,7 +4,6 @@ import time
 import result_log as logging_result
 import logging
 import os
-
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import PorterStemmer
@@ -13,10 +12,9 @@ from scipy import spatial
 from collections import OrderedDict
 from operator import itemgetter
 from gensim.models import KeyedVectors
-
-starttime = datetime.datetime.now()
 from difflib import SequenceMatcher
 
+starttime = datetime.datetime.now()
 print("start  :%s" % starttime)
 
 # ----------------------------------------------------------------------------#
